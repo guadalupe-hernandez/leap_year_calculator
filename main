@@ -1,0 +1,24 @@
+#This is a Leap year calculator
+
+month_days= [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+#Explains what defines a leap year
+def is_leap(year):
+    if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+        return f'{year} is a leap year'
+    else:
+        return f'{year} is not a leap year'
+
+def days_in_month(year, month):
+    if not 1 <= month <= 12:
+        return 'Invalid: This month does not exist'
+
+    if month == 2 and is_leap(year):
+        return f'There are 29 days in the 2 month of {year}'
+
+    return (f'There are {month_days[month]} days in the {month} month of {year}.')
+
+#combines both functions
+def leap_year_and_days(year, month):
+   print(is_leap(year))
+   print(days_in_month(year, month))
